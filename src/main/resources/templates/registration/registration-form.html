@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Registration Form</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{/css/registration/registration-form.css}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="login_box">
+            <div class="login-header">
+                <span>Register</span>
+            </div>
+
+            <form th:action="@{/register/processRegistrationForm}" th:object="${userDto}" method="POST">
+                <div th:if="${registrationError}" th:text="${registrationError}" class="error"></div>
+
+                <div class="input_box">
+                    <input type="text" th:field="*{userName}" class="input-field" required>
+                    <label for="userName" class="label">User name</label>
+                    <i class="bx bx-user icon"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="password" th:field="*{password}" class="input-field" required>
+                    <label for="password" class="label">Password</label>
+                    <i class="bx bx-lock-alt icon"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="text" th:field="*{firstName}" class="input-field" required>
+                    <label for="firstName" class="label">First name</label>
+                    <i class="bx bx-user icon"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="text" th:field="*{lastName}" class="input-field" required>
+                    <label for="lastName" class="label">Last name</label>
+                    <i class="bx bx-user icon"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="text" th:field="*{email}" class="input-field" required>
+                    <label for="email" class="label">Email</label>
+                    <i class="bx bx-envelope icon"></i>
+                </div>
+
+                <div class="input_box">
+                    <select th:name="role" class="input-field" required>
+                        <option th:value="'ROLE_STUDENT'" th:text="Student"></option>
+                        <option th:value="'ROLE_TEACHER'" th:text="Teacher"></option>
+                    </select>
+                    <label for="role" class="label">User Role</label>
+                </div>
+
+                <div class="input-box">
+                    <button type="submit" class="input-submit">Register</button>
+                </div>
+
+            </form>
+
+            <hr>
+
+            <span>Already registered?</span>
+            <a th:href="@{/showLoginPage}">Login</a>
+        </div>
+    </div>
+</body>
+
+</html>

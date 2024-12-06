@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Login Page - Learning Management System</title>
+  
+  <!-- External styles -->
+  <link rel="stylesheet" th:href="@{/css/login/login-form.css}">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Header Section -->
+  <div class="top">
+    <i class="fa fa-mortar-board"></i>
+    <h2>Learning Management System</h2>
+  </div>
+
+  <!-- Main Login Form -->
+  <div class="wrapper">
+    <div class="login_box">
+      <div class="login-header">
+        <span>Login</span>
+      </div>
+
+      <!-- Form Section -->
+      <form action="/student-courses.html" th:action="@{/authenticateTheUser}" method="POST">
+        
+        <!-- Error Message -->
+        <div class="error" th:if="${param.error}">Invalid username or password</div>
+        
+        <!-- Logout Message -->
+        <div id="logout" th:if="${param.logout}">You have been logged out!</div>
+
+        <!-- Username Field -->
+        <div class="input_box form-input-item">
+          <input type="text" name="username" id="user" class="input-field" required>
+          <label for="user" class="label">Username</label>
+          <i class="bx bx-user icon"></i>
+        </div>
+
+        <!-- Password Field -->
+        <div class="input_box form-input-item">
+          <input type="password" name="password" id="pass" class="input-field" required>
+          <label for="pass" class="label">Password</label>
+          <i class="bx bx-lock-alt icon"></i>
+        </div>
+
+        <!-- Remember Me & Forgot Password Section -->
+        <div class="remember-forgot">
+          <div class="remember-me">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember me</label>
+          </div>
+          <div class="forgot">
+            <a href="#">Forgot password?</a>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="input_box">
+          <input type="submit" class="input-submit" value="Login">
+        </div>
+
+        <hr>
+
+        <!-- Registration Link -->
+        <div class="register">
+          <span>Haven't registered yet?</span>
+          <a th:href="@{/register/showRegistrationForm}">Register</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <div class="bottom"></div>
+
+</body>
+
+</html>
