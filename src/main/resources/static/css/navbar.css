@@ -12,7 +12,7 @@ body {
 }
 
 h3 {
-	color: #333;	
+	color: rgb(209, 190, 99);	
 }
 
 .content {
@@ -41,7 +41,7 @@ h3 {
 
 nav {
 	line-height: 10vh;
-	background-color: #1367c8;
+	background-color: rgb(209, 190, 99);
 	
 }
 
@@ -54,7 +54,7 @@ nav h1 {
 nav ul{
     padding: 0;
     list-style: none;
-    background: #1367c8;
+    background: rgb(209, 190, 99);
     display: inline-block;
     float: right;
     margin: 0 1vw 0 0;
