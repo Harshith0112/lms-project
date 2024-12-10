@@ -42,9 +42,9 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/").permitAll()
-			.antMatchers("/admin/").hasRole("ADMIN") // user with student or teacher role cannot access url starting with admin
-			.antMatchers("/student/").hasRole("STUDENT")
-			.antMatchers("/teacher/").hasRole("TEACHER")
+			.antMatchers("/admin/**").hasRole("ADMIN") // user with student or teacher role cannot access url starting with admin
+			.antMatchers("/student/**").hasRole("STUDENT")
+			.antMatchers("/teacher/**").hasRole("TEACHER")
 			.and()
 			.formLogin()
 				.loginPage("/showLoginPage") // custom login page is generated in LoginController
